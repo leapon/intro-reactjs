@@ -1,0 +1,7 @@
+.DS_Store
+.module-cache
+**/npm-debug.log
+site/npm-debug.log
+/node_modules/
+# keep /site/node_modules folder
+!/site/node_modules/

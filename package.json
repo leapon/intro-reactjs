@@ -1,0 +1,37 @@
+{
+    "name": "leapbase",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./site/bin/www",
+        "data": "node ./site/bin/www",
+        "test": "find ./test -name '*_test.js' | xargs mocha -R spec"
+    },
+    "devDependencies": {
+        "browserify": "*",
+        "mocha": "*",
+        "mochify": "*",
+        "reactify": "^0.13.1"
+    },
+      "browserify": {
+        "transform": [
+            "reactify"
+        ]
+    },
+    "dependencies": {
+        "express": "~4.2.0",
+        "underscore": "~1.6.0",
+        "static-favicon": "~1.0.0",
+        "morgan": "~1.0.0",
+        "cookie-parser": "~1.0.1",
+        "body-parser": "~1.0.0",
+        "debug": "~0.7.4",
+        "consolidate": "~0.10.0",
+        "moment": "~2.7.0",
+        "mongodb": "~1.4.7",
+        "async": "~0.9.0",
+        "swig": "~1.4.1",
+        "react": "~0.11.2",
+        "compression": "~1.0.8"
+    }
+}

@@ -1,0 +1,17 @@
+{% extends '../layout/layout.html' %}
+{% set users = page.docs %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h4 class="col-md-12">{{ page.title }}</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% for user in users %}
+        <p>{{ user.name }} {{ user.age }}</p>   
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

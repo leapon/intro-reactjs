@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+var debug = require('debug')('leapbase');
+
+require('../app')(function(app) {
+    
+    /*
+    app.server.set('port', process.env.PORT || 3000);
+    var webServer = app.server.listen(app.server.get('port'), function() {
+        debug('Express server listening on port ' + webServer.address().port);
+    });
+    */
+    
+    var i = 0;
+    for (var moduleName in app.module) {
+        i = i + 1;
+        console.log(i, moduleName);
+    }
+    process.exit();
+    
+});
+
