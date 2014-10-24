@@ -2,20 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro ReactJS</title>
-    <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
-    <script src="/library/jquery/jquery.min.js"></script>
-    <script src="/library/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/library/react/react.js"></script>
-    <script src="/library/react/JSXTransformer.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro ReactJS</title>
+<link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
+<script src="/library/jquery/jquery.min.js"></script>
+<script src="/library/bootstrap/js/bootstrap.min.js"></script>
+<script src="/library/react/react.js"></script>
+<script src="/library/react/JSXTransformer.js"></script>
+<script>
+$().ready(function() {
+    $('#getWeather').click(function() {
+        console.log('weather click');
+    });
+});
+</script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <h4 class="col-md-12">Step 0</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <button id="getWeather">Get Weather</button>
+            <div id="region1"></div>
         </div>
     </div>
 </body>
