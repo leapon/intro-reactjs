@@ -5,7 +5,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Intro ReactJS</title>
+
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
+<style>
+#region1 {
+    margin-top: 20px;
+    border: solid 1px #f2f2f2;
+    min-height: 60px;
+}
+</style>
+
 <script src="/library/jquery/jquery.min.js"></script>
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script src="/library/react/react.js"></script>
@@ -13,9 +22,20 @@
 <script>
 $().ready(function() {
     $('#getWeather').click(function() {
-        console.log('weather click');
+        //console.log('weather click');
+        var url = 'http://api.openweathermap.org/data/2.5/weather';
+        var parameter = { q:'rockville', mode:'json', units:'metric' };
+        $.get(url, parameter, function(data) {
+            displayWeather(data);
+        });
     });
 });
+
+function displayWeather(data) {
+    //console.log('data:', data);
+    var content = 'location:' + data.name + ' temp:' + data.main.temp;
+    $('#region1').html(content);
+}
 </script>
 </head>
 
@@ -27,8 +47,10 @@ $().ready(function() {
     </div>
     <div class="container">
         <div class="row">
-            <button id="getWeather">Get Weather</button>
-            <div id="region1"></div>
+            <div class="col-md-4">
+                <button id="getWeather" class="btn btn-info">Get Weather</button>
+                <div id="region1"></div>
+            </div>
         </div>
     </div>
 </body>
