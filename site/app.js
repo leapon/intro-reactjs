@@ -64,6 +64,8 @@ function setup(cbSetup) {
         app.db = new Database(app, function() {
             setupModules(app, cbSetup);
         });
+    } else {
+        setupModules(app, cbSetup);
     }
 }
 
