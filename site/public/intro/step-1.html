@@ -40,9 +40,7 @@ $().ready(function() {
     $('#getWeather').click(function() {
         var url = 'http://api.openweathermap.org/data/2.5/weather';
         var parameter = { q:'rockville', mode:'json', units:'metric' };
-        $.get(url, parameter, function(data) {
-            displayWeather(data);
-        });
+        $.get(url, parameter, displayWeather);
     });
 });
 
