@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
 <style>
-#region1, #region2, #region3 {
+#region1 {
     margin-top: 20px;
     border: solid 1px #f2f2f2;
     min-height: 60px;
@@ -23,47 +23,54 @@
 /** @jsx React.DOM */
 var app = app || {};
 
-var Template = React.createClass({
-    getInitialState: function() {
-        return {};
-    },
-    componentDidMount: function() {
-        var url = 'http://api.openweathermap.org/data/2.5/weather';
-        var parameter = { q:this.props.city, mode:'json', units:'metric' };
-        $.get(url, parameter, function(data) {
-            this.state.temperature = data.main.temp;
-            this.forceUpdate();
-        }.bind(this));
-    },
+var Weather = React.createClass({
     render: function() {
         return (
-            <div className="template-container" >
-                <span className="template-text-container">
-                    { this.props.city }: 
-                    { this.state.temperature }
+            <div className="weather-container" >
+                <span className="weather-text-container">
+                    { this.props.data.city }:
+                    { this.props.data.temperature }:
+                    { this.props.data.humidity }
                 </span>
             </div>
         );
     }
 });
 
+var DayInfo = React.createClass({
+    render: function() {
+        return (
+            <div className="dayinfo-container" >
+                <span className="dayinfo-text-container">
+                    { this.props.temperature }
+                    { this.props.humidity }
+                </span>
+            </div>
+        );
+    }
+});
+
+
+
 $().ready(function() {
-    app.city1 = 'rockville';
-    app.template1 = React.renderComponent(
-        <Template city={ app.city1 } />,
+    $('#getWeather').click(function() {
+        var url = 'http://api.openweathermap.org/data/2.5/weather';
+        var parameter = { q:'rockville', mode:'json', units:'metric' };
+        $.get(url, parameter, displayWeather);
+    });
+});
+
+function displayWeather(data) {
+    var weatherData = {
+        city: data.name,
+        temperature: data.main.temp,
+        humidity: data.main.humidity
+    };
+    app.weather1 = React.renderComponent(
+        <Weather data={ weatherData } />,
         document.getElementById('region1')
     );
-    app.city2 = 'chicago';
-    app.template2 = React.renderComponent(
-        <Template city={ app.city2 } />,
-        document.getElementById('region2')
-    );
-    app.city3 = 'san francisco';
-    app.template3 = React.renderComponent(
-        <Template city={ app.city3 } />,
-        document.getElementById('region3')
-    );
-});
+}
 </script>
 </head>
 
@@ -76,9 +83,9 @@ $().ready(function() {
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+                <button id="getWeather" class="btn btn-info">Get Weather</button>
                 <div id="region1"></div>
-                <div id="region2"></div>
-                <div id="region3"></div>
+                <div id="test1"></div>
             </div>
         </div>
     </div>

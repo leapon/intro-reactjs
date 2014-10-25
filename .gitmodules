@@ -1,0 +1,3 @@
+[submodule "site/public/library/weather-icons"]
+	path = site/public/library/weather-icons
+	url = https://github.com/erikflowers/weather-icons
