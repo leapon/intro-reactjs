@@ -19,9 +19,23 @@
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script src="/library/react/react.js"></script>
 <script src="/library/react/JSXTransformer.js"></script>
-<script>
+<script type="text/jsx">
+/** @jsx React.DOM */
+var app = app || {};
 
-    
+var Template = React.createClass({
+    render: function() {
+        return (
+            <div className="template-container" >
+                <span className="template-text-container">
+                    { this.props.city }: 
+                    { this.props.temperature }
+                </span>
+            </div>
+        );
+    }
+});
+
 $().ready(function() {
     $('#getWeather').click(function() {
         var url = 'http://api.openweathermap.org/data/2.5/weather';
@@ -33,8 +47,10 @@ $().ready(function() {
 });
 
 function displayWeather(data) {
-    var content = 'location:' + data.name + '<br/> temp:' + data.main.temp;
-    $('#region1').html(content);
+    app.template1 = React.renderComponent(
+        <Template city={ data.name } temperature={ data.main.temp } />,
+        document.getElementById('region1')
+    );
 }
 </script>
 </head>
@@ -50,6 +66,7 @@ function displayWeather(data) {
             <div class="col-md-4">
                 <button id="getWeather" class="btn btn-info">Get Weather</button>
                 <div id="region1"></div>
+                <div id="test1"></div>
             </div>
         </div>
     </div>
