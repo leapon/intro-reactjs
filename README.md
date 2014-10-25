@@ -1,7 +1,7 @@
 Introduction to ReactJS
 =======================
 
-This project shows how to use ReactJS to build a web page to display weather data.
+This project uses ReactJS to display weather data in a modular way.
 
 How to start
 ------------
