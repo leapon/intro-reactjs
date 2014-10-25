@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
 <style>
-#region1 {
+#region1, #region2, #region3 {
     margin-top: 20px;
     border: solid 1px #f2f2f2;
     min-height: 60px;
@@ -19,21 +19,51 @@
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script src="/library/react/react.js"></script>
 <script src="/library/react/JSXTransformer.js"></script>
-<script>
-$().ready(function() {
-    $('#getWeather').click(function() {
+<script type="text/jsx">
+/** @jsx React.DOM */
+var app = app || {};
+
+var Template = React.createClass({
+    getInitialState: function() {
+        return {};
+    },
+    componentDidMount: function() {
         var url = 'http://api.openweathermap.org/data/2.5/weather';
-        var parameter = { q:'rockville', mode:'json', units:'metric' };
+        var parameter = { q:this.props.city, mode:'json', units:'metric' };
         $.get(url, parameter, function(data) {
-            displayWeather(data);
-        });
-    });
+            this.state.temperature = data.main.temp;
+            this.forceUpdate();
+        }.bind(this));
+    },
+    render: function() {
+        return (
+            <div className="template-container" >
+                <span className="template-text-container">
+                    { this.props.city }: 
+                    { this.state.temperature }
+                </span>
+            </div>
+        );
+    }
 });
 
-function displayWeather(data) {
-    var content = 'location:' + data.name + '<br/> temp:' + data.main.temp;
-    $('#region1').html(content);
-}
+$().ready(function() {
+    app.city1 = 'rockville';
+    app.template1 = React.renderComponent(
+        <Template city={ app.city1 } />,
+        document.getElementById('region1')
+    );
+    app.city2 = 'chicago';
+    app.template2 = React.renderComponent(
+        <Template city={ app.city2 } />,
+        document.getElementById('region2')
+    );
+    app.city3 = 'san francisco';
+    app.template3 = React.renderComponent(
+        <Template city={ app.city3 } />,
+        document.getElementById('region3')
+    );
+});
 </script>
 </head>
 
@@ -46,8 +76,13 @@ function displayWeather(data) {
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="getWeather" class="btn btn-info">Get Weather</button>
                 <div id="region1"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="region2"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="region3"></div>
             </div>
         </div>
     </div>
