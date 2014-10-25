@@ -23,7 +23,7 @@
 /** @jsx React.DOM */
 var app = app || {};
 
-var Template = React.createClass({
+var Weather = React.createClass({
     render: function() {
         return (
             <div className="template-container" >
@@ -45,8 +45,8 @@ $().ready(function() {
 });
 
 function displayWeather(data) {
-    app.template1 = React.renderComponent(
-        <Template city={ data.name } temperature={ data.main.temp } />,
+    app.weather1 = React.renderComponent(
+        <Weather city={ data.name } temperature={ data.main.temp } />,
         document.getElementById('region1')
     );
 }
