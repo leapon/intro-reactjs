@@ -22,7 +22,6 @@
 <script>
 $().ready(function() {
     $('#getWeather').click(function() {
-        //console.log('weather click');
         var url = 'http://api.openweathermap.org/data/2.5/weather';
         var parameter = { q:'rockville', mode:'json', units:'metric' };
         $.get(url, parameter, function(data) {
@@ -32,8 +31,7 @@ $().ready(function() {
 });
 
 function displayWeather(data) {
-    //console.log('data:', data);
-    var content = 'location:' + data.name + ' temp:' + data.main.temp;
+    var content = 'location:' + data.name + '<br/> temp:' + data.main.temp;
     $('#region1').html(content);
 }
 </script>
