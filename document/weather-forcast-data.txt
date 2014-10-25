@@ -1,0 +1,195 @@
+URL
+===
+http://api.openweathermap.org/data/2.5/forecast/daily?q=rockville&mode=json&units=metric&cnt=7
+
+Data
+====
+{
+    "cod": "200",
+    "message": 0.3391,
+    "city": {
+        "id": 4367175,
+        "name": "Rockville",
+        "coord": {
+            "lon": -77.152763,
+            "lat": 39.084
+        },
+        "country": "US",
+        "population": 0,
+        "sys": {
+            "population": 0
+        }
+    },
+    "cnt": 7,
+    "list": [
+        {
+            "dt": 1414252800,
+            "temp": {
+                "day": 21.95,
+                "min": 12.75,
+                "max": 25.39,
+                "night": 17.49,
+                "eve": 25.39,
+                "morn": 12.75
+            },
+            "pressure": 1015.57,
+            "humidity": 68,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 3.07,
+            "deg": 296,
+            "clouds": 0
+        },
+        {
+            "dt": 1414339200,
+            "temp": {
+                "day": 20.1,
+                "min": 10.39,
+                "max": 21.77,
+                "night": 10.39,
+                "eve": 20.92,
+                "morn": 15.41
+            },
+            "pressure": 1011.97,
+            "humidity": 54,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 5.62,
+            "deg": 320,
+            "clouds": 0
+        },
+        {
+            "dt": 1414425600,
+            "temp": {
+                "day": 18.23,
+                "min": 2.08,
+                "max": 18.23,
+                "night": 14.72,
+                "eve": 16.57,
+                "morn": 2.08
+            },
+            "pressure": 1006.03,
+            "humidity": 0,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 2.24,
+            "deg": 194,
+            "clouds": 12
+        },
+        {
+            "dt": 1414512000,
+            "temp": {
+                "day": 23.87,
+                "min": 9.78,
+                "max": 23.87,
+                "night": 18.63,
+                "eve": 19.77,
+                "morn": 9.78
+            },
+            "pressure": 1006.58,
+            "humidity": 0,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 2.16,
+            "deg": 232,
+            "clouds": 10
+        },
+        {
+            "dt": 1414598400,
+            "temp": {
+                "day": 22.12,
+                "min": 12.16,
+                "max": 22.12,
+                "night": 12.16,
+                "eve": 18.01,
+                "morn": 18.92
+            },
+            "pressure": 1003.78,
+            "humidity": 0,
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10d"
+                }
+            ],
+            "speed": 2.66,
+            "deg": 273,
+            "clouds": 90,
+            "rain": 0.71
+        },
+        {
+            "dt": 1414684800,
+            "temp": {
+                "day": 17.85,
+                "min": 6.97,
+                "max": 17.85,
+                "night": 7.81,
+                "eve": 9.92,
+                "morn": 6.97
+            },
+            "pressure": 1007.23,
+            "humidity": 0,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 1.28,
+            "deg": 16,
+            "clouds": 0
+        },
+        {
+            "dt": 1414771200,
+            "temp": {
+                "day": 19.33,
+                "min": 5.61,
+                "max": 19.33,
+                "night": 10.16,
+                "eve": 14.49,
+                "morn": 5.61
+            },
+            "pressure": 1000.86,
+            "humidity": 0,
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10d"
+                }
+            ],
+            "speed": 3.69,
+            "deg": 286,
+            "clouds": 0
+        }
+    ]
+}

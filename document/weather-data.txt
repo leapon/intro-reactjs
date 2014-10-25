@@ -1,0 +1,47 @@
+URL
+===
+http://api.openweathermap.org/data/2.5/weather?q=rockville&mode=json&units=metric
+
+Data
+====
+{
+    "coord": {
+        "lon": -77.15,
+        "lat": 39.08
+    },
+    "sys": {
+        "type": 1,
+        "id": 1332,
+        "message": 0.0167,
+        "country": "US",
+        "sunrise": 1414236555,
+        "sunset": 1414275359
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "sky is clear",
+            "icon": "01d"
+        }
+    ],
+    "base": "cmc stations",
+    "main": {
+        "temp": 15.45,
+        "pressure": 1016,
+        "humidity": 51,
+        "temp_min": 14,
+        "temp_max": 17
+    },
+    "wind": {
+        "speed": 4.6,
+        "deg": 270
+    },
+    "clouds": {
+        "all": 1
+    },
+    "dt": 1414249236,
+    "id": 4367175,
+    "name": "Rockville",
+    "cod": 200
+}
