@@ -15,9 +15,8 @@
 }
 
 .dayinfo-container {
-    /* width: 20%; */
+    width: 20%;
     background-color: #eee;
-    text-align: center;
     padding: 3px;
 }
 
@@ -37,11 +36,27 @@
 var app = app || {};
 
 var Weather = React.createClass({
+    getInitialState: function() {
+        return { data:null };
+    },
+    componentDidMount: function() {
+        var url = 'http://api.openweathermap.org/data/2.5/weather';
+        var parameter = { q:this.props.city, mode:'json', units:'metric' };
+        $.get(url, parameter, function(data) {
+            this.state.data = {
+                city: data.name,
+                temperature: data.main.temp,
+                humidity: data.main.humidity
+            };
+            this.forceUpdate();
+        }.bind(this));
+    },
     render: function() {
+        var data = this.state && this.state.data || {};
         return (
             <div className="weather-container" >
-                <WeatherHeader data={ this.props.data } />
-                <DayInfo data={ this.props.data } />
+                <WeatherHeader data={ data } />
+                <DayInfo data={ data } />
             </div>
         );
     }
@@ -64,8 +79,8 @@ var DayInfo = React.createClass({
         return (
             <div className="dayinfo-container" >
                 <span className="dayinfo-text-container">
-                    Temperature:{ this.props.data.temperature }&nbsp;
-                    Humidity:{ this.props.data.humidity }
+                    T:{ this.props.data.temperature } &nbsp;
+                    H:{ this.props.data.humidity }
                 </span>
             </div>
         );
@@ -73,24 +88,12 @@ var DayInfo = React.createClass({
 });
 
 $().ready(function() {
-    $('#getWeather').click(function() {
-        var url = 'http://api.openweathermap.org/data/2.5/weather';
-        var parameter = { q:'rockville', mode:'json', units:'metric' };
-        $.get(url, parameter, displayWeather);
-    });
-});
-
-function displayWeather(data) {
-    var weatherData = {
-        city: data.name,
-        temperature: data.main.temp,
-        humidity: data.main.humidity
-    };
+    app.city1 = 'rockville';
     app.weather1 = React.renderComponent(
-        <Weather data={ weatherData } />,
+        <Weather city={ app.city1 } />,
         document.getElementById('region1')
     );
-}
+});
 </script>
 </head>
 
@@ -103,7 +106,6 @@ function displayWeather(data) {
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button id="getWeather" class="btn btn-info">Get Weather</button>
                 <div id="region1"></div>
             </div>
         </div>
