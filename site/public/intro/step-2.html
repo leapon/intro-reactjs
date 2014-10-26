@@ -27,11 +27,10 @@ var Weather = React.createClass({
     render: function() {
         return (
             <div className="weather-container" >
-                <span className="weather-text-container">
-                    { this.props.data.city }:
-                    { this.props.data.temperature }:
-                    { this.props.data.humidity }
-                </span>
+                <div className="weather-text-container">
+                    { this.props.data.city}
+                </div>
+                <DayInfo data={ this.props.data } />
             </div>
         );
     }
@@ -42,15 +41,13 @@ var DayInfo = React.createClass({
         return (
             <div className="dayinfo-container" >
                 <span className="dayinfo-text-container">
-                    { this.props.temperature }
-                    { this.props.humidity }
+                    T:{ this.props.data.temperature } &nbsp;
+                    H:{ this.props.data.humidity }
                 </span>
             </div>
         );
     }
 });
-
-
 
 $().ready(function() {
     $('#getWeather').click(function() {
