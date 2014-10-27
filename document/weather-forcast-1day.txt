@@ -1,0 +1,50 @@
+URL
+===
+http://api.openweathermap.org/data/2.5/forecast/daily?q=rockville&mode=json&units=metric&cnt=1
+
+Data
+====
+{
+    "cod": "200",
+    "message": 1.1312,
+    "city": {
+        "id": 4367175,
+        "name": "Rockville",
+        "coord": {
+            "lon": -77.152763,
+            "lat": 39.084
+        },
+        "country": "US",
+        "population": 0,
+        "sys": {
+            "population": 0
+        }
+    },
+    "cnt": 1,
+    "list": [
+        {
+            "dt": 1414425600,
+            "temp": {
+                "day": 21.3,
+                "min": 14.01,
+                "max": 21.38,
+                "night": 14.01,
+                "eve": 21.38,
+                "morn": 21.3
+            },
+            "pressure": 1018,
+            "humidity": 58,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 2.47,
+            "deg": 196,
+            "clouds": 0
+        }
+    ]
+}
