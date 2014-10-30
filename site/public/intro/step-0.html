@@ -26,6 +26,32 @@ $().ready(function() {
     });
 });
 
+/*
+{
+    "dt": 1414425600,
+    "temp": {
+        "day": 21.3,
+        "min": 14.01,
+        "max": 21.38,
+        "night": 14.01,
+        "eve": 21.38,
+        "morn": 21.3
+    },
+    "pressure": 1018,
+    "humidity": 58,
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "sky is clear",
+            "icon": "01d"
+        }
+    ],
+    "speed": 2.47,
+    "deg": 196,
+    "clouds": 0
+}
+*/
 function displayWeather(data) {
     var content = 'location:' + data.name + '<br/> temp:' + data.main.temp;
     $('#region1').html(content);
