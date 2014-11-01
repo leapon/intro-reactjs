@@ -34,13 +34,10 @@ var DayForcast = React.createClass({
         var humidity = data.humidity;
         // render content
         return (
-            <div className="template-container" >
-                <span className="template-text-container">
-                    <div>date: { date }</div>
-                    <div>weather: { weather }</div>
-                    <div>temperature: { temperature }</div>
-                    <div>humidity: { humidity }</div>
-                </span>
+            <div className="day-forcast-container" >
+                <div>date: { date }</div>
+                <div>weather: { weather }</div>
+                <div>temperature: { temperature }</div>
             </div>
         );
     }

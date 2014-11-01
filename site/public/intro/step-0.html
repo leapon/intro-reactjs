@@ -62,8 +62,7 @@ function displayWeather(data) {
     var content = 
         'date:' + moment.unix(forcast.dt).format('MMM DD') + '<br/>' +
         'weather:' + forcast.weather[0].main + '<br/>' +
-        'temperature:' + forcast.temp.day + '<br/>' +
-        'humidity:' + forcast.humidity;
+        'temperature:' + forcast.temp.day
     $('#weather1').html(content);
 }
 </script>
