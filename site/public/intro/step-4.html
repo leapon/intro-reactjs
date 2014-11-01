@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro ReactJS</title>
+
+<link rel="stylesheet" href="/library/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/library/weather-icons/css/weather-icons.min.css">
+<link rel="stylesheet" href="/library/reactlet-weather/weather.css">
+<style>
+#weather1 {
+    margin-top: 20px;
+    border: solid 1px #f2f2f2;
+    min-height: 40px;
+}
+</style>
+
+<script src="/library/jquery/jquery.min.js"></script>
+<script src="/library/moment/moment.min.js"></script>
+<script src="/library/bootstrap/js/bootstrap.min.js"></script>
+<script src="/library/react/react.js"></script>
+<script src="/library/react/JSXTransformer.js"></script>
+<script src="/library/reactlet-weather/weather.js" type="text/jsx"></script>
+
+<script type="text/jsx">
+var app = app || {};
+
+$().ready(function() {
+    $('#getWeather').click(function() {
+        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+        var parameter = { q:'rockville', mode:'json', units:'metric', cnt:1 };
+        $.get(url, parameter, displayWeather);
+    });
+});
+
+function displayWeather(data) {
+    var forcast = data.list[0];
+    forcast.location = data.city.name;
+    app.weather1 = React.renderComponent(
+        <WeekForcast data={ forcast } />,
+        document.getElementById('weather1')
+    );
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 class="col-md-12">Step 4</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button id="getWeather" class="btn btn-info">Get Weather</button>
+                <div id="weather1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

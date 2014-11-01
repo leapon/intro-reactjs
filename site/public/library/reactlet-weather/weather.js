@@ -1,3 +1,18 @@
+// WeekForcast
+var WeekForcast = React.createClass({
+    render: function() {
+        // set variables for display
+        var data = this.props.data;
+        
+        // render content
+        return (
+            <div className="week-forcast-container" >
+            
+            </div>
+        );
+    }
+});
+
 // DayForcast
 var DayForcast = React.createClass({
     getWeatherIconName: function(weather) {
