@@ -56,10 +56,11 @@ $().ready(function() {
 function displayWeather(data) {
     var location = data.city.name;
     var forcast = data.list[0];
-    var content = 'location:' + location +
-        '<br/> date:' + moment.unix(forcast.dt).format('MMM DD') +
-        '<br/> temperature:' + forcast.temp.day +
-        '<br/> humidity:' + forcast.humidity;
+    var content = 
+        'date:' + moment.unix(forcast.dt).format('MMM DD') + '<br/>' +
+        'weather:' + forcast.weather[0].main + '<br/>' +
+        'temperature:' + forcast.temp.day + '<br/>' +
+        'humidity:' + forcast.humidity;
     $('#weather1').html(content);
 }
 </script>
