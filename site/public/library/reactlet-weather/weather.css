@@ -1,0 +1,20 @@
+
+// DayForcast
+.day-forcast-container {
+    padding: 10px 0 5px;
+    background-color: #eee;
+}
+
+.day-forcast-container div {
+    display: inline;
+    padding: 10px 10px;
+    font-size: 1.8em;
+}
+
+.day-forcast-container .day-forcast-day {
+    color: blue;
+}
+
+.day-forcast-container .day-forcast-temperature i {
+    padding-left: 5px;
+}

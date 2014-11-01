@@ -7,7 +7,7 @@
 <title>Intro ReactJS</title>
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/library/weather/css/weather-icons.min.css">
+<link rel="stylesheet" href="/library/weather-icons/css/weather-icons.min.css">
 <style>
 #weather1 {
     margin-top: 20px;
@@ -39,14 +39,22 @@
 var app = app || {};
 
 var DayForcast = React.createClass({
+    getWeatherIconName: function(weather) {
+        weather = weather.toLowerCase();
+        switch(weather) {
+            case 'clouds':
+                weather = 'cloudy';
+                break;
+        }
+        return weather;
+    },
     render: function() {
         // set variables for display
         var data = this.props.data;
         var date = moment.unix(data.dt).format('DD');
         var temperature = Math.round(data.temp.day);
         var humidity = data.humidity;
-        var weather = data.weather[0].main;
-        var weatherClassName = 'wi wi-day-' + weather.toLowerCase();
+        var weatherClassName = 'wi wi-day-' + this.getWeatherIconName(data.weather[0].main);
         var weatherUnitClassName = 'wi wi-celsius';
         // render content
         return (
