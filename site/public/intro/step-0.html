@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.css">
 <style>
-#region1 {
+#weather1 {
     margin-top: 20px;
     border: solid 1px #f2f2f2;
     min-height: 60px;
@@ -60,7 +60,7 @@ function displayWeather(data) {
         '<br/> date:' + moment.unix(forcast.dt).format('MMM DD') +
         '<br/> temperature:' + forcast.temp.day +
         '<br/> humidity:' + forcast.humidity;
-    $('#region1').html(content);
+    $('#weather1').html(content);
 }
 </script>
 </head>
@@ -75,7 +75,7 @@ function displayWeather(data) {
         <div class="row">
             <div class="col-md-4">
                 <button id="getWeather" class="btn btn-info">Get Weather</button>
-                <div id="region1"></div>
+                <div id="weather1"></div>
             </div>
         </div>
     </div>
