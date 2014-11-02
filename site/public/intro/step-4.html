@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/library/weather-icons/css/weather-icons.min.css">
+<link rel="stylesheet" href="/library/reactlet-weather/weather.css">
 <style>
 #weather1 {
     margin-top: 20px;
@@ -35,43 +36,9 @@
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script src="/library/react/react.js"></script>
 <script src="/library/react/JSXTransformer.js"></script>
+<script src="/library/reactlet-weather/weather.js" type="text/jsx"></script>
 <script type="text/jsx">
 var app = app || {};
-
-var DayForcast = React.createClass({
-    getWeatherIconName: function(weather) {
-        weather = weather.toLowerCase();
-        switch(weather) {
-            case 'clouds':
-                weather = 'cloudy';
-                break;
-            case 'clear':
-                weather = 'sunny';
-                break;
-        }
-        return weather;
-    },
-    render: function() {
-        // set variables for display
-        var data = this.props.data;
-        var date = moment.unix(data.dt).format('DD');
-        var temperature = Math.round(data.temp.day);
-        var humidity = data.humidity;
-        var weatherClassName = 'wi wi-day-' + this.getWeatherIconName(data.weather[0].main);
-        var weatherUnitClassName = 'wi wi-celsius';
-        // render content
-        return (
-            <div className="day-forcast-container" >
-                <div className="day-forcast-day">{ date }</div>
-                <div className="day-forcast-icon"><i className={ weatherClassName }></i></div>
-                <div className="day-forcast-temperature">
-                    { temperature }
-                    <i className={ weatherUnitClassName }></i>
-                </div>
-            </div>
-        );
-    }
-});
 
 $().ready(function() {
     $('#getWeather').click(function() {
@@ -95,7 +62,7 @@ function displayWeather(data) {
 <body>
     <div class="container">
         <div class="row">
-            <h4 class="col-md-12">Step 2</h4>
+            <h4 class="col-md-12">Step 4</h4>
         </div>
     </div>
     <div class="container">

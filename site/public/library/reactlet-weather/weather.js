@@ -1,4 +1,5 @@
 // WeekForcast
+/*
 var WeekForcast = React.createClass({
     render: function() {
         // set variables for display
@@ -7,11 +8,11 @@ var WeekForcast = React.createClass({
         // render content
         return (
             <div className="week-forcast-container" >
-            
             </div>
         );
     }
 });
+*/
 
 // DayForcast
 var DayForcast = React.createClass({
@@ -20,6 +21,9 @@ var DayForcast = React.createClass({
         switch(weather) {
             case 'clouds':
                 weather = 'cloudy';
+                break;
+            case 'clear':
+                weather = 'sunny';
                 break;
         }
         return weather;
