@@ -15,21 +15,6 @@
     border: solid 1px #f2f2f2;
     min-height: 40px;
 }
-
-#weather2 {
-    font-size: 0.6em;
-}
-
-#weather2 .day-forcast-container {
-    float: left;
-    width: 50px;
-    text-align: center;
-}
-
-#weather2 .day-forcast-container div {
-    display: block;
-    padding: 2px;
-}
 </style>
 
 <script src="/library/jquery/jquery.min.js"></script>
@@ -57,10 +42,6 @@ function displayWeather(data) {
         <WeekForcast data={ forcast } />,
         document.getElementById('weather1')
     );
-    app.weather2 = React.render(
-        <WeekForcast data={ forcast } />,
-        document.getElementById('weather2')
-    );
 }
 </script>
 </head>
@@ -74,15 +55,7 @@ function displayWeather(data) {
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <button id="getWeather" class="btn btn-info">Get Weather</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
                 <div id="weather1"></div>
-            </div>
-            <div class="col-md-6">
-                <div id="weather2"></div>
             </div>
         </div>
     </div>

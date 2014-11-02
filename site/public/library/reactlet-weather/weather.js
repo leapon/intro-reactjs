@@ -51,6 +51,21 @@ var WeekForcast = React.createClass({
         return (
             <div className="week-forcast-container" >
                 { dayForcasts }
+                <div className="div-clear-both"></div>
+            </div>
+        );
+    }
+});
+
+// Weather
+var Weather = React.createClass({
+    render: function() {
+        // set variables for display
+        var data = this.props.data;
+        // render content
+        return (
+            <div className="weather-container" >
+                
             </div>
         );
     }

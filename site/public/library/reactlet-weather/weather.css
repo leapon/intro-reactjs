@@ -1,3 +1,7 @@
+/* common */
+.div-clear-both {
+    clear: both;
+}
 
 /* DayForcast */
 .day-forcast-container {
@@ -15,5 +19,5 @@
 }
 
 .day-forcast-container .day-forcast-temperature i {
-    padding-left: 5px;
+    padding-left: 2px;
 }
