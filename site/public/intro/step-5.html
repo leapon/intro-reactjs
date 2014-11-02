@@ -8,25 +8,12 @@
 
 <link rel="stylesheet" href="/library/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/library/weather-icons/css/weather-icons.min.css">
+<link rel="stylesheet" href="/library/reactlet-weather/weather.css">
 <style>
-#weather1 {
+#weather1, #weather2 {
     margin-top: 20px;
     border: solid 1px #f2f2f2;
     min-height: 40px;
-}
-.day-forcast-container {
-    padding: 5px 0 5px;
-}
-.day-forcast-container div {
-    display: inline;
-    padding: 10px 10px;
-    font-size: 1.8em;
-}
-.day-forcast-day {
-    color: blue;
-}
-.day-forcast-temperature i {
-    padding-left: 5px;
 }
 </style>
 
@@ -35,58 +22,29 @@
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script src="/library/react/react.js"></script>
 <script src="/library/react/JSXTransformer.js"></script>
+<script src="/library/reactlet-weather/weather.js" type="text/jsx"></script>
 <script type="text/jsx">
 var app = app || {};
-
-var DayForcast = React.createClass({
-    getWeatherIconName: function(weather) {
-        weather = weather.toLowerCase();
-        switch(weather) {
-            case 'clouds':
-                weather = 'cloudy';
-                break;
-            case 'clear':
-                weather = 'sunny';
-                break;
-        }
-        return weather;
-    },
-    render: function() {
-        // set variables for display
-        var data = this.props.data;
-        var date = moment.unix(data.dt).format('DD');
-        var temperature = Math.round(data.temp.day);
-        var humidity = data.humidity;
-        var weatherClassName = 'wi wi-day-' + this.getWeatherIconName(data.weather[0].main);
-        var weatherUnitClassName = 'wi wi-celsius';
-        // render content
-        return (
-            <div className="day-forcast-container" >
-                <div className="day-forcast-day">{ date }</div>
-                <div className="day-forcast-icon"><i className={ weatherClassName }></i></div>
-                <div className="day-forcast-temperature">
-                    { temperature }
-                    <i className={ weatherUnitClassName }></i>
-                </div>
-            </div>
-        );
-    }
-});
 
 $().ready(function() {
     $('#getWeather').click(function() {
         var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
-        var parameter = { q:'rockville', mode:'json', units:'metric', cnt:1 };
+        var parameter = { q:'rockville', mode:'json', units:'metric', cnt:7 };
         $.get(url, parameter, displayWeather);
     });
 });
 
 function displayWeather(data) {
-    var forcast = data.list[0];
+    var forcast = {};
     forcast.location = data.city.name;
-    app.weather1 = React.renderComponent(
-        <DayForcast data={ forcast } />,
+    forcast.dataItems = data.list;
+    app.weather1 = React.render(
+        <WeekForcast data={ forcast } />,
         document.getElementById('weather1')
+    );
+    app.weather2 = React.render(
+        <WeekForcast data={ forcast } />,
+        document.getElementById('weather2')
     );
 }
 </script>
@@ -95,14 +53,23 @@ function displayWeather(data) {
 <body>
     <div class="container">
         <div class="row">
-            <h4 class="col-md-12">Step 2</h4>
+            <h4 class="col-md-12">Step 5</h4>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <button id="getWeather" class="btn btn-info">Get Weather</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
                 <div id="weather1"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="weather2"></div>
             </div>
         </div>
     </div>

@@ -84,7 +84,7 @@ $().ready(function() {
 function displayWeather(data) {
     var forcast = data.list[0];
     forcast.location = data.city.name;
-    app.weather1 = React.renderComponent(
+    app.weather1 = React.render(
         <DayForcast data={ forcast } />,
         document.getElementById('weather1')
     );

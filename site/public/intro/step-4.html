@@ -15,20 +15,6 @@
     border: solid 1px #f2f2f2;
     min-height: 40px;
 }
-.day-forcast-container {
-    padding: 5px 0 5px;
-}
-.day-forcast-container div {
-    display: inline;
-    padding: 10px 10px;
-    font-size: 1.8em;
-}
-.day-forcast-day {
-    color: blue;
-}
-.day-forcast-temperature i {
-    padding-left: 5px;
-}
 </style>
 
 <script src="/library/jquery/jquery.min.js"></script>
@@ -51,7 +37,7 @@ $().ready(function() {
 function displayWeather(data) {
     var forcast = data.list[0];
     forcast.location = data.city.name;
-    app.weather1 = React.renderComponent(
+    app.weather1 = React.render(
         <DayForcast data={ forcast } />,
         document.getElementById('weather1')
     );
