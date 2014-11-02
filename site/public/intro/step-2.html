@@ -30,7 +30,6 @@ var DayForcast = React.createClass({
         var date = moment.unix(data.dt).format('MMM DD');
         var weather = data.weather[0].main;
         var temperature = data.temp.day;
-        var humidity = data.humidity;
         // render content
         return (
             <div className="day-forcast-container" >

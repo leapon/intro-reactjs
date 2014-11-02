@@ -45,6 +45,9 @@ var DayForcast = React.createClass({
             case 'clouds':
                 weather = 'cloudy';
                 break;
+            case 'clear':
+                weather = 'sunny';
+                break;
         }
         return weather;
     },
