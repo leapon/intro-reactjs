@@ -42,24 +42,15 @@
 var app = app || {};
 
 $().ready(function() {
-    $('#getWeather').click(function() {
-        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
-        var parameter = { q:'rockville', mode:'json', units:'metric', cnt:7 };
-        $.get(url, parameter, displayWeather);
-    });
+    var location = 'rockville';
+    displayWeather(location);
 });
 
-function displayWeather(data) {
-    var forcast = {};
-    forcast.location = data.city.name;
-    forcast.dataItems = data.list;
+function displayWeather(location) {
+    var weatherData = { location:location };
     app.weather1 = React.render(
-        <WeekForcast data={ forcast } />,
+        <Weather data={ weatherData } />,
         document.getElementById('weather1')
-    );
-    app.weather2 = React.render(
-        <WeekForcast data={ forcast } />,
-        document.getElementById('weather2')
     );
 }
 </script>
@@ -73,16 +64,8 @@ function displayWeather(data) {
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <button id="getWeather" class="btn btn-info">Get Weather</button>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <div id="weather1"></div>
-            </div>
-            <div class="col-md-6">
-                <div id="weather2"></div>
             </div>
         </div>
     </div>

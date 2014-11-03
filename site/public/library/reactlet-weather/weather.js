@@ -65,7 +65,7 @@ var Weather = React.createClass({
         // render content
         return (
             <div className="weather-container" >
-                
+                weather for { data.location }
             </div>
         );
     }
