@@ -4,6 +4,10 @@
 }
 
 /* component */
+.weather-container {
+    background-color: #f2f2f2;
+}
+
 .week-forcast-container {
     font-size: 0.6em;
 }
