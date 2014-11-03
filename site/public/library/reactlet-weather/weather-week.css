@@ -3,21 +3,14 @@
     clear: both;
 }
 
-/* component */
-.week-forcast-container {
-    font-size: 0.6em;
-}
-
+/* DayForcast */
 .day-forcast-container {
     padding: 10px 0 5px;
-    float: left;
-    width: 50px;
-    text-align: center;
 }
 
 .day-forcast-container div {
-    display: block;
-    padding: 2px;
+    display: inline;
+    padding: 10px 10px;
     font-size: 1.8em;
 }
 

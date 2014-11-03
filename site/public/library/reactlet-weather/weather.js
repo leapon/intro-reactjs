@@ -40,12 +40,14 @@ var WeekForcast = React.createClass({
         // set variables for display
         var data = this.props.data;
         var dayForcasts = [];
-        for (var i = 0; i < data.dataItems.length; i++) {
-            var dataItem = data.dataItems[i];
-            var dataItemKey = 'dt-' + dataItem.dt;
-            dayForcasts.push(
-                <DayForcast data={ dataItem } key={ dataItemKey } />
-            )
+        if (data.dataItems && data.dataItems.length > 0) {
+            for (var i = 0; i < data.dataItems.length; i++) {
+                var dataItem = data.dataItems[i];
+                var dataItemKey = 'dt-' + dataItem.dt;
+                dayForcasts.push(
+                    <DayForcast data={ dataItem } key={ dataItemKey } />
+                )
+            }
         }
         // render content
         return (
@@ -59,13 +61,28 @@ var WeekForcast = React.createClass({
 
 // Weather
 var Weather = React.createClass({
+    getInitialState: function() {
+        return { data:{ location:'', dataItems:null } };
+    },
+    componentDidMount: function() {
+        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+        var parameter = { q:this.props.data.location, mode:'json', units:'metric', cnt:7 };
+        $.get(url, parameter, function(data) {
+            this.state.data = {
+                location: this.props.data.location,
+                dataItems: data.list
+            };
+            this.forceUpdate();
+        }.bind(this));
+    },
+    
     render: function() {
         // set variables for display
         var data = this.props.data;
         // render content
         return (
             <div className="weather-container" >
-                weather for { data.location }
+                <WeekForcast data={ this.state.data } />
             </div>
         );
     }
