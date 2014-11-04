@@ -59,6 +59,36 @@ var WeekForcast = React.createClass({
     }
 });
 
+// WeatherCurrent
+var WeatherCurrent = React.createClass({
+    getInitialState: function() {
+        return { data:{ location:'', forcastList:null } };
+    },
+    componentDidMount: function() {
+        var url = 'http://api.openweathermap.org/data/2.5/weather'
+        var parameter = { q:this.props.data.location, mode:'json', units:'metric' };
+        $.get(url, parameter, function(data) {
+            console.log('current weather:', data);
+            this.state.data = {
+                location: this.props.data.location
+                //forcastList: data.list
+            };
+            this.forceUpdate();
+        }.bind(this));
+    },
+    
+    render: function() {
+        // set variables for display
+        var data = this.props.data;
+        // render content
+        return (
+            <div className="weather-current-container" >
+                current weather
+            </div>
+        );
+    }
+});
+
 // Weather
 var Weather = React.createClass({
     getInitialState: function() {
