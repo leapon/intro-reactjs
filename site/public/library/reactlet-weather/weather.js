@@ -101,7 +101,7 @@ var WeatherCurrent = React.createClass({
         }
         if (data) {
             summary.location = data.name;
-            summary.temperature = data.main && data.main.temp;
+            summary.temperature = Math.round(data.main && data.main.temp || 0);
             summary.currentMonth = moment.unix(data.dt).format('MMM');
             summary.currentDay = moment.unix(data.dt).format('DD');
         }
@@ -109,8 +109,10 @@ var WeatherCurrent = React.createClass({
         // render content
         return (
             <div className="weather-current-container" >
-                <div className="weather-current-month">{ summary.currentMonth }</div>
-                <div className="weather-current-day">{ summary.currentDay }</div>
+                <div className="weather-current-date">
+                    <div className="weather-current-month">{ summary.currentMonth }</div>
+                    <div className="weather-current-day">{ summary.currentDay }</div>
+                </div>
                 <div className="weather-current-location">{ summary.location }</div>
                 <div className="weather-current-temperature">
                     { summary.temperature }
