@@ -36,9 +36,23 @@ var DayForcast = React.createClass({
 
 // WeekForcast
 var WeekForcast = React.createClass({
+    getInitialState: function() {
+        return { data:{ location:'', forcastList:null } };
+    },
+    componentDidMount: function() {
+        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+        var parameter = { q:this.props.data.location, mode:'json', units:'metric', cnt:7 };
+        $.get(url, parameter, function(data) {
+            this.state.data = {
+                location: this.props.data.location,
+                forcastList: data.list
+            };
+            this.forceUpdate();
+        }.bind(this));
+    },
     render: function() {
         // set variables for display
-        var data = this.props.data;
+        var data = this.state.data;
         var dayForcasts = [];
         if (data.forcastList && data.forcastList.length > 0) {
             for (var i = 0; i < data.forcastList.length; i++) {
@@ -70,20 +84,39 @@ var WeatherCurrent = React.createClass({
         $.get(url, parameter, function(data) {
             console.log('current weather:', data);
             this.state.data = {
-                location: this.props.data.location
-                //forcastList: data.list
+                location: this.props.data.location,
+                weather: data
             };
             this.forceUpdate();
         }.bind(this));
     },
-    
     render: function() {
         // set variables for display
-        var data = this.props.data;
+        var data = this.state.data.weather;
+        var summary = {
+            location: '',
+            temperature: '',
+            currentMonth: '',
+            currentDay: ''
+        }
+        if (data) {
+            summary.location = data.name;
+            summary.temperature = data.main && data.main.temp;
+            summary.currentMonth = moment.unix(data.dt).format('MMM');
+            summary.currentDay = moment.unix(data.dt).format('DD');
+        }
+        var weatherUnitClassName = 'wi wi-celsius';
         // render content
         return (
             <div className="weather-current-container" >
-                current weather
+                <div className="weather-current-month">{ summary.currentMonth }</div>
+                <div className="weather-current-day">{ summary.currentDay }</div>
+                <div className="weather-current-location">{ summary.location }</div>
+                <div className="weather-current-temperature">
+                    { summary.temperature }
+                    <i className={ weatherUnitClassName }></i>
+                </div>
+                <div className="div-clear-both"></div>
             </div>
         );
     }
@@ -91,28 +124,12 @@ var WeatherCurrent = React.createClass({
 
 // Weather
 var Weather = React.createClass({
-    getInitialState: function() {
-        return { data:{ location:'', forcastList:null } };
-    },
-    componentDidMount: function() {
-        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
-        var parameter = { q:this.props.data.location, mode:'json', units:'metric', cnt:7 };
-        $.get(url, parameter, function(data) {
-            this.state.data = {
-                location: this.props.data.location,
-                forcastList: data.list
-            };
-            this.forceUpdate();
-        }.bind(this));
-    },
-    
     render: function() {
-        // set variables for display
-        var data = this.props.data;
         // render content
         return (
             <div className="weather-container" >
-                <WeekForcast data={ this.state.data } />
+                <WeatherCurrent data={ this.props.data } />
+                <WeekForcast data={ this.props.data } />
             </div>
         );
     }

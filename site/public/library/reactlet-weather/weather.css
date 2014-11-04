@@ -6,10 +6,44 @@
 /* component */
 .weather-container {
     background-color: #f2f2f2;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .week-forcast-container {
     font-size: 0.6em;
+}
+
+.weather-current-container {
+    border-bottom: solid 1px #ddd;
+}
+
+.weather-current-container .weather-current-month {
+    padding: 10px 5px 10px;
+    float: left;
+    font-size: 2.1em;
+    color: #777;
+}
+
+.weather-current-container .weather-current-day {
+    padding: 15px 10px 10px 0;
+    float: left;
+    font-size: 1.8em;
+    color: #777;
+}
+
+.weather-current-container .weather-current-location {
+    padding: 10px 15px 10px 15px;
+    float: left;
+    font-size: 2.1em;
+    color: #555;
+}
+
+.weather-current-container .weather-current-temperature {
+    padding: 10px;
+    float: left;
+    font-size: 2.1em;
+    color: #777;
 }
 
 .day-forcast-container {
