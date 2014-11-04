@@ -1,0 +1,35 @@
+/* common */
+.div-clear-both {
+    clear: both;
+}
+
+/* component */
+.weather-container {
+    background-color: #f2f2f2;
+}
+
+.week-forcast-container {
+    font-size: 0.6em;
+}
+
+.day-forcast-container {
+    padding: 10px 0 5px;
+    float: left;
+    width: 50px;
+    text-align: center;
+}
+
+.day-forcast-container div {
+    display: block;
+    padding: 2px;
+    font-size: 1.8em;
+}
+
+.day-forcast-container .day-forcast-day {
+    color: red;
+    font-weight: bold;
+}
+
+.day-forcast-container .day-forcast-temperature i {
+    padding-left: 2px;
+}
