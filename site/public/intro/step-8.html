@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro ReactJS</title>
+
+<link rel="stylesheet" href="/library/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/library/weather-icons/css/weather-icons.min.css">
+<link rel="stylesheet" href="/library/reactlet-weather/weather.css">
+<style>
+.weather {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 380px;
+    border: solid 1px #f2f2f2;
+    min-height: 40px;
+}
+</style>
+
+<script src="/library/jquery/jquery.min.js"></script>
+<script src="/library/moment/moment.min.js"></script>
+<script src="/library/bootstrap/js/bootstrap.min.js"></script>
+<script src="/library/react/react.js"></script>
+<script src="/library/react/JSXTransformer.js"></script>
+<script src="/library/reactlet-weather/weather.js" type="text/jsx"></script>
+<script type="text/jsx">
+var app = app || {};
+
+$().ready(function() {
+    displayWeather('rockville', 'weather1');
+    displayWeather('bethesda', 'weather2');
+    displayWeather('baltimore', 'weather3');
+    displayWeather('mclean', 'weather4');
+    displayWeather('reston', 'weather5');
+    displayWeather('arlington', 'weather6');
+});
+
+function displayWeather(location, elementId) {
+    var data = { location:location };
+    app.weather1 = React.render(
+        <Weather data={ data } />,
+        document.getElementById(elementId)
+    );
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 class="col-md-12">Step 8</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="weather1" class="weather"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="weather2" class="weather"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="weather3" class="weather"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="weather4" class="weather"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="weather5" class="weather"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="weather6" class="weather"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
