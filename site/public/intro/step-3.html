@@ -14,19 +14,19 @@
     border: solid 1px #f2f2f2;
     min-height: 40px;
 }
-.day-forcast-container {
+.day-forecast-container {
     padding: 5px 0 5px;
 }
-.day-forcast-container div {
+.day-forecast-container div {
     display: inline;
     padding: 10px 10px;
     font-size: 1.8em;
 }
-.day-forcast-day {
+.day-forecast-day {
     color: red;
     font-weight: bold;
 }
-.day-forcast-temperature i {
+.day-forecast-temperature i {
     padding-left: 5px;
 }
 </style>
@@ -42,7 +42,7 @@ var app = app || {};
 /*
 Icon font for weather: https://github.com/erikflowers/weather-icons
 */
-var DayForcast = React.createClass({
+var DayForecast = React.createClass({
     getWeatherIconName: function(weather) {
         weather = weather.toLowerCase();
         switch(weather) {
@@ -65,10 +65,10 @@ var DayForcast = React.createClass({
         var weatherUnitClassName = 'wi wi-celsius';
         // render content
         return (
-            <div className="day-forcast-container" >
-                <div className="day-forcast-day">{ date }</div>
-                <div className="day-forcast-icon"><i className={ weatherClassName }></i></div>
-                <div className="day-forcast-temperature">
+            <div className="day-forecast-container" >
+                <div className="day-forecast-day">{ date }</div>
+                <div className="day-forecast-icon"><i className={ weatherClassName }></i></div>
+                <div className="day-forecast-temperature">
                     { temperature }
                     <i className={ weatherUnitClassName }></i>
                 </div>
@@ -86,10 +86,10 @@ $().ready(function() {
 });
 
 function displayWeather(data) {
-    var forcast = data.list[0];
-    forcast.location = data.city.name;
+    var forecast = data.list[0];
+    forecast.location = data.city.name;
     app.weather1 = React.render(
-        <DayForcast data={ forcast } />,
+        <DayForecast data={ forecast } />,
         document.getElementById('weather1')
     );
 }

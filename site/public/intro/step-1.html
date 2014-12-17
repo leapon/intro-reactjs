@@ -63,12 +63,12 @@ Weather data example:
 */
 function displayWeather(data) {
     var location = data.city.name;
-    var forcast = data.list[0];
+    var forecast = data.list[0];
     // display weather and temperature
     var content = 
-        'date:' + moment.unix(forcast.dt).format('MMM DD') + '<br/>' +
-        'weather:' + forcast.weather[0].main + '<br/>' +
-        'temperature:' + forcast.temp.day
+        'date:' + moment.unix(forecast.dt).format('MMM DD') + '<br/>' +
+        'weather:' + forecast.weather[0].main + '<br/>' +
+        'temperature:' + forecast.temp.day
     $('#weather1').html(content);
 }
 </script>

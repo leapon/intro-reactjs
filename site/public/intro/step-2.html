@@ -23,8 +23,8 @@
 <script type="text/jsx">
 var app = app || {};
 
-// Define React compoment DayForcast
-var DayForcast = React.createClass({
+// Define React compoment DayForecast
+var DayForecast = React.createClass({
     render: function() {
         // set variables for display
         var data = this.props.data;
@@ -33,7 +33,7 @@ var DayForcast = React.createClass({
         var temperature = data.temp.day;
         // render content
         return (
-            <div className="day-forcast-container" >
+            <div className="day-forecast-container" >
                 <div>date: { date }</div>
                 <div>weather: { weather }</div>
                 <div>temperature: { temperature }</div>
@@ -51,7 +51,7 @@ $().ready(function() {
 });
 
 /*
-Weather forcast data example:
+Weather forecast data example:
 {
     "cod": "200",
     "message": 1.1312,
@@ -98,10 +98,10 @@ Weather forcast data example:
 }
 */
 function displayWeather(data) {
-    var forcast = data.list[0];
-    forcast.location = data.city.name;
+    var forecast = data.list[0];
+    forecast.location = data.city.name;
     app.weather1 = React.render(
-        <DayForcast data={ forcast } />,
+        <DayForecast data={ forecast } />,
         document.getElementById('weather1')
     );
 }

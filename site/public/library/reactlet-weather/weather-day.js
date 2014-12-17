@@ -1,5 +1,5 @@
-// DayForcast
-var DayForcast = React.createClass({
+// DayForecast
+var DayForecast = React.createClass({
     getWeatherIconName: function(weather) {
         weather = weather.toLowerCase();
         switch(weather) {
@@ -22,10 +22,10 @@ var DayForcast = React.createClass({
         var weatherUnitClassName = 'wi wi-celsius';
         // render content
         return (
-            <div className="day-forcast-container" >
-                <div className="day-forcast-day">{ date }</div>
-                <div className="day-forcast-icon"><i className={ weatherClassName }></i></div>
-                <div className="day-forcast-temperature">
+            <div className="day-forecast-container" >
+                <div className="day-forecast-day">{ date }</div>
+                <div className="day-forecast-icon"><i className={ weatherClassName }></i></div>
+                <div className="day-forecast-temperature">
                     { temperature }
                     <i className={ weatherUnitClassName }></i>
                 </div>

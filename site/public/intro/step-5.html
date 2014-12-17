@@ -20,13 +20,13 @@
     font-size: 0.6em;
 }
 
-#weather2 .day-forcast-container {
+#weather2 .day-forecast-container {
     float: left;
     width: 50px;
     text-align: center;
 }
 
-#weather2 .day-forcast-container div {
+#weather2 .day-forecast-container div {
     display: block;
     padding: 2px;
 }
@@ -56,15 +56,15 @@ $().ready(function() {
 });
 
 function displayWeather(data) {
-    var forcast = {};
-    forcast.location = data.city.name;
-    forcast.dataItems = data.list;
+    var forecast = {};
+    forecast.location = data.city.name;
+    forecast.dataItems = data.list;
     app.weather1 = React.render(
-        <WeekForcast data={ forcast } />,
+        <WeekForecast data={ forecast } />,
         document.getElementById('weather1')
     );
     app.weather2 = React.render(
-        <WeekForcast data={ forcast } />,
+        <WeekForecast data={ forecast } />,
         document.getElementById('weather2')
     );
 }

@@ -8,28 +8,28 @@
     background-color: #f2f2f2;
 }
 
-.week-forcast-container {
+.week-forecast-container {
     font-size: 0.6em;
 }
 
-.day-forcast-container {
+.day-forecast-container {
     padding: 10px 0 5px;
     float: left;
     width: 50px;
     text-align: center;
 }
 
-.day-forcast-container div {
+.day-forecast-container div {
     display: block;
     padding: 2px;
     font-size: 1.8em;
 }
 
-.day-forcast-container .day-forcast-day {
+.day-forecast-container .day-forecast-day {
     color: red;
     font-weight: bold;
 }
 
-.day-forcast-container .day-forcast-temperature i {
+.day-forecast-container .day-forecast-temperature i {
     padding-left: 2px;
 }
