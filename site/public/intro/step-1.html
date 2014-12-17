@@ -19,6 +19,11 @@
 <script src="/library/moment/moment.min.js"></script>
 <script src="/library/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+/*
+Weather data source
+  Website: http://openweathermap.org/
+  API site: http://openweathermap.org/api
+*/
 $().ready(function() {
     $('#getWeather').click(function() {
         var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?' +
@@ -59,6 +64,7 @@ Result example:
 function displayWeather(data) {
     var location = data.city.name;
     var forcast = data.list[0];
+    // display weather and temperature
     var content = 
         'date:' + moment.unix(forcast.dt).format('MMM DD') + '<br/>' +
         'weather:' + forcast.weather[0].main + '<br/>' +
