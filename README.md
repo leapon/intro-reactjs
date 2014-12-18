@@ -9,7 +9,7 @@ http://www.mcjug.org/
 
 Presentation Slides is available at:
 
-[MCJUG Dec2014 Presentation Slide](document/MCJUG-Intro-ReactJS-2014.pdf "MCJUG Dec2014 Presentation Slide")
+[document/MCJUG-Intro-ReactJS-2014.pdf](document/MCJUG-Intro-ReactJS-2014.pdf "MCJUG Dec2014 Presentation Slide")
 
 How to start
 ------------
